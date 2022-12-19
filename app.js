@@ -2,7 +2,7 @@
 
 
 /*------------ Variables ------------*/
-
+let = winner, board, tie, player
 
 /*---- Cached Element References ----*/
 

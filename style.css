@@ -1,3 +1,18 @@
 body{
   border: solid black 16px;
 }
+
+section.board {
+  display: grid;
+  grid-template-rows: repeat(6, 10vmin);
+  grid-template-columns: repeat(7, 10vmin);
+  grid-gap: 0vmin;
+
+}
+div {
+  border: 3px solid black;
+  font-size: 8vmin;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 10px;
+}

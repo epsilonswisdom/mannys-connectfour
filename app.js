@@ -2,16 +2,19 @@
 
 
 /*------------ Variables (State of the Game) ------------*/
-let = winner, board, tie, player
+let = winner
+let = connectFour 
+let = tie 
+let = player
 
 /*---- Cached Element References ----*/
-const tileEls = document.querySelectorAll(".class")
+const tileEls = document.querySelectorAll(".tile")
 const introEl = document.querySelector("#intro")
 
 
 /*------------ Functions ------------*/
 function init() {
-  board = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,];
+  connectFour = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,];
   turn = 1;
   winner = false;
   tie = false;
@@ -19,6 +22,32 @@ function init() {
 }
 init()
 // set to the side for now
+function render(){
+  updateConnect()
+  updateMessage()
+}
+
+function updateConnect() {
+  connectFour.forEach(function (tile, index) {
+    if (tile === -1) {
+     tileEls[index].textContent =
+     "Red";
+      return
+    }
+     if (tile === 1){
+      tileEls[index].textContent =
+      "Black";
+      return
+     }
+     if (tile === null) {
+      tileEls[index].textContent =
+      "";
+      return
+     }
+  })
+}
+updateConnect()
+
 
 
 

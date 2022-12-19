@@ -3,7 +3,7 @@ body{
   background-color: lightskyblue;
 }
 
-section.board {
+section.connectFour {
   display: grid;
   grid-template-rows: repeat(6, 10vmin);
   grid-template-columns: repeat(7, 10vmin);

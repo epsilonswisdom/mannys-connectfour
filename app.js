@@ -1,20 +1,25 @@
-/*------------ Constants ------------*/
+/*------------ Constants(winning combocs) ------------*/
 
 
-/*------------ Variables ------------*/
+/*------------ Variables (State of the Game) ------------*/
 let = winner, board, tie, player
 
 /*---- Cached Element References ----*/
 const tileEls = document.querySelectorAll(".class")
+const introEl = document.querySelector("#intro")
+
 
 /*------------ Functions ------------*/
 function init() {
-  board = [];
-  turn = -1;
+  board = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,];
+  turn = 1;
   winner = false;
   tie = false;
   render()
 }
+init()
+// set to the side for now
+
 
 
 
@@ -28,7 +33,7 @@ function init() {
 
 
 // 2)Store the cached elements 
-// name constants I wanna make them circles so circEls youre gonna need to store 7x6 so it would be 42 circles
+// name constants I wanna make them circles so tileEls youre gonna need to store 7x6 so it would be 42 circles
 // we want messages to appear so make a msg element.
 // set up click and btns and event listeners as well but after our base script is set up 
 // 

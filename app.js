@@ -10,6 +10,7 @@ let = player
 /*---- Cached Element References ----*/
 const tileEls = document.querySelectorAll(".tile")
 const introEl = document.querySelector("#intro")
+const messageEl = document.querySelector("#message")
 
 
 /*------------ Functions ------------*/
@@ -47,7 +48,20 @@ function updateConnect() {
   })
 }
 updateConnect()
-
+//update Msg
+function updateMessage() {
+  if (winner === false && tie === false && turn == -1) {
+    messageEl.textContent = "Player Heart Turn"
+  } else if (winner === false && tie === false && turn == 1) {
+    messageEl.textContent = "Player Spade Turn"
+  } else if (winner === true && tie === false && turn == 1) {
+    messageEl.textContent = "Player Heart Wins!"
+  } else if (winner === true && tie === false && turn == -1) {
+    messageEl.textContent = "Player Spade Wins!"
+  } else {
+    messageEl.textContent = "It's a Bloody Tie How?"
+  }
+}
 
 
 

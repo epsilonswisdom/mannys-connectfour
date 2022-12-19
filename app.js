@@ -5,10 +5,16 @@
 let = winner, board, tie, player
 
 /*---- Cached Element References ----*/
-
+const tileEls = document.querySelectorAll(".class")
 
 /*------------ Functions ------------*/
-
+function init() {
+  board = [];
+  turn = -1;
+  winner = false;
+  tie = false;
+  render()
+}
 
 
 

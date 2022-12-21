@@ -3,7 +3,7 @@
 
 /*------------ Variables (State of the Game) ------------*/
 let winner 
-let connectFour 
+let board 
 let tie 
 let player
 
@@ -16,21 +16,22 @@ document.addEventListener("click", handleClick)
 
 /*------------ Functions ------------*/
 function init() {
-  connectFour = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,];
+  board = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,];
   turn = 1;
   winner = false;
   tie = false;
   render()
+  console.log(board)
 }
 init()
 // set to the side for now you set up the init function for the board 
 function render(){
-  updateConnect()
+  updateBoard()
   updateMessage()
 }
 
-function updateConnect() {
-  connectFour.forEach(function (tile, index) {
+function updateBoard() {
+  tileEls.forEach(function (tile, index) {
     if (tile === -1) {
      tileEls[index].textContent =
      "Red";
@@ -48,7 +49,7 @@ function updateConnect() {
      }
   })
 }
-updateConnect()
+updateBoard()
 //update Msg
 function updateMessage() {
   if (winner === false && tie === false && turn == -1) {
@@ -67,9 +68,9 @@ function updateMessage() {
 function handleClick(evt) {
   const sqIdx = evt.target.id
   let numIdx = parseInt(sqIdx.charAt("tile"))
-  let connectFourIdx = connectFour[numIdx]
+  let boardIdx = board[numIdx]
   console.log(sqIdx)
-  if (connectFourIdx !== null || winner === true){
+  if (boardIdx !== null || winner === true){
     return
   }
   placePiece(numIdx)

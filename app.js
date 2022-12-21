@@ -24,7 +24,7 @@ function init() {
   console.log(board)
 }
 init()
-// set to the side for now you set up the init function for the board 
+
 function render(){
   updateBoard()
   updateMessage()
@@ -53,20 +53,25 @@ updateBoard()
 //update Msg
 function updateMessage() {
   if (winner === false && tie === false && turn == -1) {
-    messageEl.textContent = "Player Heart Turn"
+    messageEl.textContent = "Player 1 Turn"
   } else if (winner === false && tie === false && turn == 1) {
-    messageEl.textContent = "Player Spade Turn"
+    messageEl.textContent = "Player 2 Turn"
   } else if (winner === true && tie === false && turn == 1) {
-    messageEl.textContent = "Player Heart Wins!"
+    messageEl.textContent = "Player 1 Wins!"
   } else if (winner === true && tie === false && turn == -1) {
-    messageEl.textContent = "Player Spade Wins!"
+    messageEl.textContent = "Player 2 Wins!"
   } else {
     messageEl.textContent = "It's a Bloody Tie How?"
   }
 }
 
 function handleClick(evt) {
-  const sqIdx = evt.target.id
+  if (evt.target.id.includes("tile")) {
+    let sqIdx = evt.target.id.replace("tile","")
+    if (placePiece(sqIdx)=== undefined){
+      return
+    }
+  }
   let numIdx = parseInt(sqIdx.charAt("tile"))
   let boardIdx = board[numIdx]
   console.log(sqIdx)
@@ -87,7 +92,7 @@ function placePiece(index){
 console.log(placePiece)
 
 function checkForTie() {
-  if (!connectFour.includes(null)){
+  if (!board.includes(null)){
     tie = true
   }
 }

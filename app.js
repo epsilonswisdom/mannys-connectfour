@@ -1,17 +1,18 @@
-/*------------ Constants(winning combocs) ------------*/
+/*------------ Constants(winning combos) ------------*/
 
 
 /*------------ Variables (State of the Game) ------------*/
-let = winner
-let = connectFour 
-let = tie 
-let = player
+let winner 
+let connectFour 
+let tie 
+let player
 
 /*---- Cached Element References ----*/
 const tileEls = document.querySelectorAll(".tile")
 const introEl = document.querySelector("#intro")
 const messageEl = document.querySelector("#message")
-
+/*----------Event Listeners-----------*/
+document.addEventListener("click", handleClick)
 
 /*------------ Functions ------------*/
 function init() {
@@ -22,7 +23,7 @@ function init() {
   render()
 }
 init()
-// set to the side for now
+// set to the side for now you set up the init function for the board 
 function render(){
   updateConnect()
   updateMessage()
@@ -63,7 +64,51 @@ function updateMessage() {
   }
 }
 
+function handleClick(evt) {
+  const sqIdx = evt.target.id
+  let numIdx = parseInt(sqIdx.charAt("tile"))
+  let connectFourIdx = connectFour[numIdx]
+  console.log(sqIdx)
+  if (connectFourIdx !== null || winner === true){
+    return
+  }
+  placePiece(numIdx)
+  checkForTie()
+  checkForWinner()
+  switchPlayerTurn()
+  render()
+}
+//above is correct
+function placePiece(index){
+  connectFour[index] = turn
 
+}
+console.log(placePiece)
+
+function checkForTie() {
+  if (!connectFour.includes(null)){
+    tie = true
+  }
+}
+
+function checkForWinner(){
+  winningCombos.forEach(function(winCombos) {
+    let sum = winCombos.reduce(function(alpha,num){
+      return alpha + connectFour[num]
+    },0);
+      if(Math.abs(sum)===3){
+        winner = true
+      }
+  })
+}
+
+function switchPlayerTurn(){
+  if (winner === true) {
+    return
+  } if (winner === false) {
+    turn *= -1
+  }
+}
 
 
 

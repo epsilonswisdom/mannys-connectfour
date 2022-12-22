@@ -33,28 +33,28 @@ function render(){
   updateMessage()
 }
 
-function updateMessage() {
+function updateBoard() {
   board.forEach(function (tile, index) {
     if (tile === -1) {
-     messageEl[index].textContent =
+     tileEls[index].textContent =
      "Red";
       return
     }
-     if (tile === 1){
-      messageEl[index].textContent =
+     else if (tile === 1){
+      tileEls[index].textContent =
       "Black";
       return
      }
-     if (tile === null) {
-      messageEl[index].textContent =
+      else  (tile === null) {
+      tileEls[index].textContent =
       "";
       return
      }
   })
-  updateMessage()
+  updateBoard()
 }
 // //update Msg
-function updateBoard() {
+function updateMessage() {
   if (winner === false && tie === false && turn == -1) {
     messageEl.textContent = "Player 1 Turn"
   } else if (winner === false && tie === false && turn == 1) {
@@ -66,20 +66,18 @@ function updateBoard() {
   } else {
     messageEl.textContent = "It's a Bloody Tie How?"
   }
+  updateMessage()
 }
-updateBoard()
 function handleClick(evt) {
-  let sqIdx = parseInt(evt.target.id.replace("tile", ""))
-  // if (placePiece(sqIdx)=== undefined){
-  //     return
-  // }
+  let tileIdx = +evt.target.id.replace("tile", "")
+  if (board(tileIdx) !== null) {
+      return
+  } else if(winner === true) {
+    return
+  }
   
-  // let numIdx = parseInt(sqIdx.charAt(0))
-  // let boardIdx = board[numIdx]
-  // if (boardIdx !== null || winner === true){
-  //   return
-  // }
-  placePiece(sqIdx)
+  
+  placePiece(tileIdx)
   checkForTie()
   checkForWinner()
   switchPlayerTurn()
@@ -87,14 +85,20 @@ function handleClick(evt) {
 }
 // //above is correct
 function placePiece(index){   
-  board[index] = turn
+  for (let i =(index + 35); i > -1; i = 7){
+    if(board.includes(null)){ 
+      return board[index] = turn 
 
+    
+  
+    }
+  }
 }
 
 
 function checkForTie() {
-  if (!board.includes(null)){
-    tie = true
+  if (board.includes(null)){
+     return tie = true
   }
 }
 

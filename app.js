@@ -30,7 +30,7 @@ function render(){
   updateMessage()
 }
 
-function updateBoard() {
+function updateMessage() {
   messageEl.forEach(function (tile, index) {
     if (tile === -1) {
      messageEl[index].textContent =
@@ -49,9 +49,9 @@ function updateBoard() {
      }
   })
 }
-updateBoard()
+updateMessage()
 //update Msg
-function updateMessage() {
+function updateBoard() {
   if (winner === false && tie === false && turn == -1) {
     messageEl.textContent = "Player 1 Turn"
   } else if (winner === false && tie === false && turn == 1) {

@@ -5,25 +5,28 @@
 let winner 
 let board 
 let tie 
-let player
+let turn
 
 /*---- Cached Element References ----*/
 const tileEls = document.querySelectorAll(".tile")
+console.dir(tileEls)
+//const columnEls = document.querySelectorAll()
 const introEl = document.querySelector("#intro")
+console.dir(introEl)
 const messageEl = document.querySelector("#message")
+console.dir(messageEl)
 /*----------Event Listeners-----------*/
 document.addEventListener("click", handleClick)
 
 /*------------ Functions ------------*/
 function init() {
-  board = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,];
+  board = Array(42).fill(null)
   turn = 1;
   winner = false;
   tie = false;
   render()
-  console.log(board)
+
 }
-init()
 
 function render(){
   updateBoard()
@@ -31,7 +34,7 @@ function render(){
 }
 
 function updateMessage() {
-  messageEl.forEach(function (tile, index) {
+  board.forEach(function (tile, index) {
     if (tile === -1) {
      messageEl[index].textContent =
      "Red";
@@ -48,9 +51,9 @@ function updateMessage() {
       return
      }
   })
+  updateMessage()
 }
-updateMessage()
-//update Msg
+// //update Msg
 function updateBoard() {
   if (winner === false && tie === false && turn == -1) {
     messageEl.textContent = "Player 1 Turn"
@@ -64,32 +67,30 @@ function updateBoard() {
     messageEl.textContent = "It's a Bloody Tie How?"
   }
 }
-updateMessage()
+updateBoard()
 function handleClick(evt) {
-  if (evt.target.id.includes("tile")) {
-    let sqIdx = evt.target.id.replace("tile","")
-    if (placePiece(sqIdx)=== undefined){
-      return
-    }
-  }
-  let numIdx = parseInt(sqIdx.charAt([]))
-  let boardIdx = board[numIdx]
-  console.log(sqIdx)
-  if (boardIdx !== null || winner === true){
-    return
-  }
-  placePiece(numIdx)
+  let sqIdx = parseInt(evt.target.id.replace("tile", ""))
+  // if (placePiece(sqIdx)=== undefined){
+  //     return
+  // }
+  
+  // let numIdx = parseInt(sqIdx.charAt(0))
+  // let boardIdx = board[numIdx]
+  // if (boardIdx !== null || winner === true){
+  //   return
+  // }
+  placePiece(sqIdx)
   checkForTie()
   checkForWinner()
   switchPlayerTurn()
   render()
 }
-//above is correct
-function placePiece(index){
+// //above is correct
+function placePiece(index){   
   board[index] = turn
 
 }
-console.log(placePiece)
+
 
 function checkForTie() {
   if (!board.includes(null)){
@@ -156,4 +157,4 @@ function switchPlayerTurn(){
 // d)you also want to check for chip placements check for winner, tie and loser, as well player turns
 
 // e)if game works make a reset button
-//5 Make it pretty for Ben not confetti maybe stars going everywhere
+//5 Make it pretty for Ben not confetti maybe stars going everywhere 

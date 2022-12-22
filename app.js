@@ -31,19 +31,19 @@ function render(){
 }
 
 function updateBoard() {
-  tileEls.forEach(function (tile, index) {
+  messageEl.forEach(function (tile, index) {
     if (tile === -1) {
-     tileEls[index].textContent =
+     messageEl[index].textContent =
      "Red";
       return
     }
      if (tile === 1){
-      tileEls[index].textContent =
+      messageEl[index].textContent =
       "Black";
       return
      }
      if (tile === null) {
-      tileEls[index].textContent =
+      messageEl[index].textContent =
       "";
       return
      }
@@ -64,7 +64,7 @@ function updateMessage() {
     messageEl.textContent = "It's a Bloody Tie How?"
   }
 }
-
+updateMessage()
 function handleClick(evt) {
   if (evt.target.id.includes("tile")) {
     let sqIdx = evt.target.id.replace("tile","")
@@ -72,7 +72,7 @@ function handleClick(evt) {
       return
     }
   }
-  let numIdx = parseInt(sqIdx.charAt("tile"))
+  let numIdx = parseInt(sqIdx.charAt([]))
   let boardIdx = board[numIdx]
   console.log(sqIdx)
   if (boardIdx !== null || winner === true){
@@ -86,7 +86,7 @@ function handleClick(evt) {
 }
 //above is correct
 function placePiece(index){
-  connectFour[index] = turn
+  board[index] = turn
 
 }
 console.log(placePiece)
@@ -100,7 +100,7 @@ function checkForTie() {
 function checkForWinner(){
   winningCombos.forEach(function(winCombos) {
     let sum = winCombos.reduce(function(alpha,num){
-      return alpha + connectFour[num]
+      return alpha + board[num]
     },0);
       if(Math.abs(sum)===3){
         winner = true

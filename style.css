@@ -1,6 +1,6 @@
 body{
-  border: solid black 16px;
-  background-color: lightskyblue;
+ display: flex;
+ flex-wrap: wrap;
 }
 
 .connectFour {

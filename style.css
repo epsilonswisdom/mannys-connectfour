@@ -1,8 +1,12 @@
+
 body{
  display: flex;
  flex-direction: column;
  justify-content: center;
  align-items: center;
+
+ 
+
 }
 
 section.connectFour {
@@ -11,14 +15,17 @@ section.connectFour {
   grid-template-rows: repeat(6, 10vmin);
   grid-template-columns: repeat(7, 10vmin);
   grid-gap: 0vmin;
-  border: 3px solid black;
+  border: 10px solid black;
   margin: auto;
+  background: "shelter";
 }
 div {
+  display: block;
+  justify-content: center;
   border-radius: 60px;
-  margin: 6px;
   align-items: center;
   text-align: center;
+  
 }
 .tile{
  display: flex;
@@ -28,6 +35,8 @@ div {
  background-color: aqua;
  box-shadow: 6px,6px,6px black;
 }
-
+.hero {
+  margin-bottom: 200px;
+}
 
 

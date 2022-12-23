@@ -24,6 +24,9 @@ let winningCombos = [
   [8, 15, 22, 29], [9, 16, 23, 30], [10, 17, 24, 31], 
   [11, 18, 25, 32], [12, 19, 26, 33], [13, 20, 27, 34] 
   ];
+  /*--------constants-audio-----------------------------*/
+  // import { edmAudio } from './audio'
+  // edmAudio.playmadShelter()
 
 /*------------ Variables (State of the Game) ------------*/
 let winner 
@@ -77,58 +80,43 @@ function updateBoard() {
   })
   
 }
-// //update Msg
+
 function updateMessage() {
-  if (winner === false && tie === false && turn == -1) {
-    messageEl.textContent = "Player 1 Turn"
-  } else if (winner === false && tie === false && turn == 1) {
-    messageEl.textContent = "Player 2 Turn"
-  } else if (winner === true && tie === false && turn == 1) {
-    messageEl.textContent = "Player 1 Wins!"
-  } else if (winner === true && tie === false && turn == -1) {
-    messageEl.textContent = "Player 2 Wins!"
+  if (winner === false && tie === false && turn === -1) {
+    messageEl.textContent = "Player Red Turn"
+  } else if (winner === false && tie === false && turn === 1) {
+    messageEl.textContent = "Player Black Turn"
+  } else if (winner === true && tie === false && turn === -1) {
+    messageEl.textContent = "Player Red Wins!"
+  } else if (winner === true && tie === false && turn === 1) {
+    messageEl.textContent = "Player Black Wins!"
   } else {
     messageEl.textContent = "It's a Bloody Tie How?"
   }
   
 }
-// function handleClick(evt) {
-// // let board = document.getElementById('connectFour')
-// let tileIdx = parseInt(evt.target.id.replace('tile',""))
-// if (board[tileIdx] !== null) {
-//       return
-// }  
-//    else if (winner === true) {
-//     return
-// }
 
-//  console.log(tileIdx) 
-  
-// }
 function handleClick(evt){
   const tileIdx = parseInt(evt.target.id.replace('tile', ''))
-  if (board[tileIdx] || winner)
-  return
+  if (board[tileIdx] || winner) return
   let physic = 35
   while (board[tileIdx + physic] !== null) {
     physic -= 7
   }
   board[tileIdx + physic] = turn
-
-checkForTie()
-checkForWinner()
-switchPlayerTurn()
-render()
-
-
+  render()
+  switchPlayerTurn()
+  updateMessage()
+  checkForTie()
+  checkForWinner()
 }
 
 
 
 function checkForTie() {
-  if (board.includes(null)){
-     return tie = true
-  }
+  if (board.includes(null)) return
+     tie = true
+  
 }
 
 function checkForWinner(){
@@ -144,12 +132,10 @@ function checkForWinner(){
 }
 
 function switchPlayerTurn(){
-  if (winner === true) {
-    return
-  } if (winner === false) {
+ if (!winner) 
     turn *= -1
-  }
 }
+
 
 
 

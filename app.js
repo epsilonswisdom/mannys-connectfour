@@ -34,23 +34,23 @@ let turn
 /*---- Cached Element References ----*/
 const tileEls = document.querySelectorAll(".tile")
 
-
 const introEl = document.querySelector("intro")
 
 const messageEl = document.getElementById("message")
 
 /*----------Event Listeners-----------*/
-document.querySelector(".connectFour").addEventListener("click", handleClick)
-
+//document.querySelectorAll(".connectFour").addEventListener("click", handleClick)
+tileEls.forEach(tile => tile.addEventListener('click', handleClick))
 /*------------ Functions ------------*/
 function init() {
-  board = Array(42).fill(null)
+  board = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]
   turn = 1;
   winner = false;
   tie = false;
   render()
-  
+ 
 }
+init()
 
 function render(){
   updateBoard()
@@ -92,19 +92,35 @@ function updateMessage() {
   }
   
 }
-function handleClick(evt) {
-let tileIdx = +evt.target.id.replace(".tile","")
-if (board[tileIdx] !== null) {
-      return
-}  else if(winner === true) {
-    return
-}
-placePiece(tileIdx)
-checkForTie()
-checkForWinner()
-switchPlayerTurn()
-render()
+// function handleClick(evt) {
+// // let board = document.getElementById('connectFour')
+// let tileIdx = parseInt(evt.target.id.replace('tile',""))
+// if (board[tileIdx] !== null) {
+//       return
+// }  
+//    else if (winner === true) {
+//     return
+// }
+// placePiece(tileIdx)
+// checkForTie()
+// checkForWinner()
+// switchPlayerTurn()
+// render()
+//  console.log(tileIdx) 
   
+// }
+function handleClick(evt){
+  const sqIdx = evt.target.id
+  let numIdx = parseInt(sqIdx.replace('tile',''))
+  let boardIdx = board[numIdx]
+  if (boardIdx !== null || winner === true) {
+    return
+  }
+ placePiece(numIdx)
+ checkForTie()
+ checkForWinner()
+ switchPlayerTurn()
+ render()
   
 }
 // //above is correct
@@ -118,7 +134,6 @@ function placePiece(index){
     }
   }
 }
-
 
 function checkForTie() {
   if (board.includes(null)){

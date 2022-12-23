@@ -25,8 +25,8 @@ let winningCombos = [
   [11, 18, 25, 32], [12, 19, 26, 33], [13, 20, 27, 34] 
   ];
   /*--------constants-audio-----------------------------*/
-  // import { edmAudio } from './audio'
-  // edmAudio.playmadShelter()
+ import * as audioJs from './audio.js'
+
 
 /*------------ Variables (State of the Game) ------------*/
 let winner 
@@ -40,10 +40,10 @@ const tileEls = document.querySelectorAll(".tile")
 const introEl = document.querySelector("intro")
 
 const messageEl = document.getElementById("message")
-
+const resetBtnEl = document.querySelector('#reset')
 /*----------Event Listeners-----------*/
-//document.querySelectorAll(".connectFour").addEventListener("click", handleClick)
 tileEls.forEach(tile => tile.addEventListener('click', handleClick))
+resetBtnEl.addEventListener('click',init)
 /*------------ Functions ------------*/
 function init() {
   board = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]
@@ -65,16 +65,19 @@ function updateBoard() {
     if (tile === -1) {
      tileEls[index].textContent =
      "Red";
-      return
+     audioJs.playkingDomhearts()
+     return
     }
      else if (tile === 1){
       tileEls[index].textContent =
       "Black";
+      audioJs.playkingDomhearts()
       return
      }
       else  (tile === null); {
       tileEls[index].textContent =
       "";
+      audioJs.playkingDomhearts()
       return
       }
   })

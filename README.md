@@ -10,7 +10,8 @@ JavaScript
 CSS Styling 
 HTML
 Git
-
+101Soundboards
+imgur
 # ICEBOX
 
 Planned future enhancements.

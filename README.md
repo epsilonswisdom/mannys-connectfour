@@ -2,8 +2,8 @@
 
 
 
-# Manny’s Connect 4
-Play my game (https://mannysconnectfour.netlify.app/)
+# ***Manny’s Connect 4*** 
+***Play my game*** (https://mannysconnectfour.netlify.app/)
 
 A classic board game played for ages 4 & up.
 Objective: Each player takes turns choosing a space to occupy with their tiles. In order to win the player must have 4 tiles in a row either diagonally, vertically, or horizontally. If either player completes the winning condition the game will end.  
@@ -12,13 +12,13 @@ I styled it with my Personality in Mind
 
 # Technologies used thus far are as follows.
 
-1.JavaScript
-2.CSS Styling 
-3.HTML
-4.Git
-5.101Soundboards
-6.imgur
-7.Windows Paint
+JavaScript,
+CSS Styling ,
+HTML,
+Git,
+101Soundboards,
+imgur,
+Windows Paint
 # Credits
 While the below disclaimers are technically required by their license-holders I would like to also sincerely thank all the creators whose work makes this site look great. Thank you!
 Google Fonts,Ellysiunm Arts-Gene R.Von Edler, and 101soundboards
@@ -26,6 +26,6 @@ Google Fonts,Ellysiunm Arts-Gene R.Von Edler, and 101soundboards
 
 Planned future enhancements.
 - [] I plan to enhance the UI and overall style of the game (Aesthetics are always important)
--[] Increase the functionality of the game and add more special features (more buttons!!)
--[] Mobile Web adaption
--[] Accessibility features 
+- [] Increase the functionality of the game and add more special features (more buttons!!)
+- [] Mobile Web adaption
+- [] Accessibility features 

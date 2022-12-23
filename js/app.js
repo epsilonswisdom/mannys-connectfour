@@ -106,9 +106,9 @@ function handleClick(evt){
   audioJs.playkingDomhearts()
   render()
   switchPlayerTurn()
-  updateMessage()
   checkForTie()
   checkForWinner()
+  updateMessage()
 }
 
 

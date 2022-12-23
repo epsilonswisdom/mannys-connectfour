@@ -1,5 +1,6 @@
 
 body{
+ background-image:url(https://i.imgur.com/sMh2MF4.jpg) ;
  display: flex;
  flex-direction: column;
  justify-content: center;
@@ -15,7 +16,7 @@ section.connectFour {
   grid-template-rows: repeat(6, 10vmin);
   grid-template-columns: repeat(7, 10vmin);
   grid-gap: 0vmin;
-  border: 10px solid black;
+  border: 10px solid aqua;
   margin: auto;
   background: "shelter";
 }
@@ -27,16 +28,37 @@ div {
   text-align: center;
   
 }
+div.layer{
+  color: rgb(171, 38, 211);
+  font-family:'Permanent Marker', cursive ;
+  font-size: 24px;
+}
 .tile{
  display: flex;
  justify-content: center;
  align-items: center;
  border: 6px solid black;
- background-color: aqua;
+ background-color: rgb(8, 148, 167);
  box-shadow: 6px,6px,6px black;
 }
 .hero {
   margin-bottom: 200px;
+}
+h3#message {
+  font-family:'play', sans-serif;
+  background: linear-gradient(180deg,blue,aqua);
+  font-weight: 300;
+  color: rgba(1, 17, 3, 0.945);
+}
+button#reset{
+  margin-top: 10px;
+  border-radius: 10px;
+  background: linear-gradient(45deg,blue,green);
+  color: aliceblue;
+  padding: 24px;
+  font-family: fantasy;
+  font-size: 24px;
+
 }
 
 

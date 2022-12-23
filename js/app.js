@@ -60,12 +60,13 @@ function updateBoard() {
   board.forEach(function (tile, index) {
     if (tile === -1) {
      tileEls[index].innerHTML = '<img id="madeon" src="./Assets/madeon-neon-logo.png">';
+     tileEls[index].classList.add("newton")
      
      return
     }
      else if (tile === 1){
       tileEls[index].innerHTML = '<img id="shelter" src="./Assets/shelter-logo-small.png">';
-     
+      tileEls[index].classList.add("newton")
       
       return
      }
@@ -81,13 +82,13 @@ function updateBoard() {
 
 function updateMessage() {
   if (winner === false && tie === false && turn === -1) {
-    messageEl.textContent = "Player One Turn"
-  } else if (winner === false && tie === false && turn === 1) {
     messageEl.textContent = "Player Two Turn"
+  } else if (winner === false && tie === false && turn === 1) {
+    messageEl.textContent = "Player One Turn"
   } else if (winner === true && tie === false && turn === -1) {
-    messageEl.textContent = "Player One Wins!"
-  } else if (winner === true && tie === false && turn === 1) {
     messageEl.textContent = "Player Two Wins!"
+  } else if (winner === true && tie === false && turn === 1) {
+    messageEl.textContent = "Player One Wins!"
   } else {
     messageEl.textContent = "It's a Bloody Tie How?"
   }

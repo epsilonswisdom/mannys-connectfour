@@ -1,6 +1,7 @@
 
 body{
- background-image:url(https://i.imgur.com/sMh2MF4.jpg) ;
+ background-image:url(../Assets/Porter\ Robinson\ 1920x1080.jpg);
+ background: cover;
  display: flex;
  flex-direction: column;
  justify-content: center;
@@ -59,6 +60,16 @@ button#reset{
   padding: 24px;
   font-family: fantasy;
   font-size: 24px;
-
 }
-
+.newton{
+  animation-name: fall-animation;
+  animation-duration: 1000ms;
+}
+@keyframes fall-animation{
+  from{
+    transform: translateY(-500px);
+  }
+  to{
+    transform: translateX(0);
+  }
+}

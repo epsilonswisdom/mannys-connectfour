@@ -1,9 +1,9 @@
-![ConnectFour](../Assets/Connect 4 Snapshot.png)
+<img src="./Assets/Connect 4 Snapshot.png">
 
 
-[Play my game(https://mannysconnectfour.netlify.app/)]
 
 # Manny’s Connect 4
+Play my game (https://mannysconnectfour.netlify.app/)
 
 A classic board game played for ages 4 & up.
 Objective: Each player takes turns choosing a space to occupy with their tiles. In order to win the player must have 4 tiles in a row either diagonally, vertically, or horizontally. If either player completes the winning condition the game will end.  

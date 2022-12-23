@@ -82,13 +82,13 @@ function updateBoard() {
 
 function updateMessage() {
   if (winner === false && tie === false && turn === -1) {
-    messageEl.textContent = "Player Two Turn"
+    messageEl.textContent = "Player Two's Turn"
   } else if (winner === false && tie === false && turn === 1) {
-    messageEl.textContent = "Player One Turn"
+    messageEl.textContent = "Player One's Turn"
   } else if (winner === true && tie === false && turn === -1) {
-    messageEl.textContent = "Player Two Wins!"
+    messageEl.textContent = "Player Two's Wins!"
   } else if (winner === true && tie === false && turn === 1) {
-    messageEl.textContent = "Player One Wins!"
+    messageEl.textContent = "Player One's Wins!"
   } else {
     messageEl.textContent = "It's a Bloody Tie How?"
   }

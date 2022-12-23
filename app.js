@@ -101,39 +101,29 @@ function updateMessage() {
 //    else if (winner === true) {
 //     return
 // }
-// placePiece(tileIdx)
-// checkForTie()
-// checkForWinner()
-// switchPlayerTurn()
-// render()
+
 //  console.log(tileIdx) 
   
 // }
 function handleClick(evt){
-  const sqIdx = evt.target.id
-  let numIdx = parseInt(sqIdx.replace('tile',''))
-  let boardIdx = board[numIdx]
-  if (boardIdx !== null || winner === true) {
-    return
+  const tileIdx = parseInt(evt.target.id.replace('tile', ''))
+  if (board[tileIdx] || winner)
+  return
+  let physic = 35
+  while (board[tileIdx + physic] !== null) {
+    physic -= 7
   }
- placePiece(numIdx)
- checkForTie()
- checkForWinner()
- switchPlayerTurn()
- render()
-  
-}
-// //above is correct
-function placePiece(index){   
-  for (let i = (index + 35); i > -1; i = 7){
-    if(board[i] === null){ 
-      return board[i] = turn 
+  board[tileIdx + physic] = turn
 
-    
-  
-    }
-  }
+checkForTie()
+checkForWinner()
+switchPlayerTurn()
+render()
+
+
 }
+
+
 
 function checkForTie() {
   if (board.includes(null)){

@@ -33,12 +33,8 @@ let winner
 let board 
 let tie 
 let turn
-
 /*---- Cached Element References ----*/
 const tileEls = document.querySelectorAll(".tile")
-
-const introEl = document.querySelector("intro")
-
 const messageEl = document.getElementById("message")
 const resetBtnEl = document.querySelector('#reset')
 /*----------Event Listeners-----------*/
@@ -63,21 +59,20 @@ function render(){
 function updateBoard() {
   board.forEach(function (tile, index) {
     if (tile === -1) {
-     tileEls[index].textContent =
-     "Red";
-     audioJs.playkingDomhearts()
+     tileEls[index].innerHTML = '<img id="madeon" src="./Assets/madeon-neon-logo.png">';
+     
      return
     }
      else if (tile === 1){
-      tileEls[index].textContent =
-      "Black";
-      audioJs.playkingDomhearts()
+      tileEls[index].innerHTML = '<img id="shelter" src="./Assets/shelter-logo-small.png">';
+     
+      
       return
      }
       else  (tile === null); {
       tileEls[index].textContent =
       "";
-      audioJs.playkingDomhearts()
+      
       return
       }
   })
@@ -86,13 +81,13 @@ function updateBoard() {
 
 function updateMessage() {
   if (winner === false && tie === false && turn === -1) {
-    messageEl.textContent = "Player Red Turn"
+    messageEl.textContent = "Player One Turn"
   } else if (winner === false && tie === false && turn === 1) {
-    messageEl.textContent = "Player Black Turn"
+    messageEl.textContent = "Player Two Turn"
   } else if (winner === true && tie === false && turn === -1) {
-    messageEl.textContent = "Player Red Wins!"
+    messageEl.textContent = "Player One Wins!"
   } else if (winner === true && tie === false && turn === 1) {
-    messageEl.textContent = "Player Black Wins!"
+    messageEl.textContent = "Player Two Wins!"
   } else {
     messageEl.textContent = "It's a Bloody Tie How?"
   }
@@ -107,6 +102,7 @@ function handleClick(evt){
     physic -= 7
   }
   board[tileIdx + physic] = turn
+  audioJs.playkingDomhearts()
   render()
   switchPlayerTurn()
   updateMessage()

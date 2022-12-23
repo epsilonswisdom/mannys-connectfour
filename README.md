@@ -1,3 +1,8 @@
+![ConnectFour](../Assets/Connect 4 Snapshot.png)
+
+
+[Play my game(https://mannysconnectfour.netlify.app/)]
+
 # Manny’s Connect 4
 
 A classic board game played for ages 4 & up.
